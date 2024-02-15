@@ -1,0 +1,148 @@
+@font-face{
+    font-family:'Outfit';
+    src: url('../Fonts/Outfit/Outfit-VariableFont_wght.ttf');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    /*Outfit font 300 400 600*/
+    --Outfit-font:'Outfit';
+    /*Primary colors*/
+    --Soft-blue: hsl(215, 51%, 70%);
+    --Cyan: hsl(178, 100%, 50%);
+    --hover-image:hsl(178, 100%, 50%,0.5);
+    /*Neutral color*/
+    --Very-dark-blue-main-BG: hsl(217, 54%, 11%);
+    --Very-dark-blue-card-BG: hsl(216, 50%, 16%);
+    --Very-dark-blue-line: hsl(215, 32%, 27%);
+    --White: hsl(0, 0%, 100%);
+    --Fsize-paragraph:18px;
+    --border-top:hsl(214, 31%, 27%);
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--Very-dark-blue-main-BG);
+    color: var(--White);
+    font-family: var(--Outfit-font);
+    position: relative;
+}
+img{
+    width: 100%;
+    display: block;
+}
+.NFT-preview-card{
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 28px 24px;
+    background-color: var(--Very-dark-blue-card-BG);
+}
+.image-card img{
+    border-radius: 10px;
+}
+.image-card{
+    position: relative;
+}
+.image-card:hover::before,.image-card:hover::after{
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.image-card:hover::after{
+    content:url("../images/icon-view.svg");
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.image-card:hover::before{
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--hover-image);
+}
+.content{
+    margin-top: 22px;
+}
+h3{
+    font-weight:600 ;
+    cursor: pointer;
+    font-size: 22px;
+}
+p{
+    color: var(--Soft-blue);
+    margin-top: 16px;
+    font-weight: 300;
+    font-size: var(--Fsize-paragraph);
+    line-height: 1.5;
+}
+.Offer,.Offer .amount,.Offer .remaining-days,.creator{
+    display: flex;
+    align-items: center;
+}
+.Offer{
+    margin:  22px 0 23px;
+    justify-content: space-between;
+}
+.Offer .amount img,.Offer .remaining-days img{
+    flex: 1;
+}
+.Offer .amount,.Offer .remaining-days{
+    column-gap: 7px;
+    font-size: 16px;
+}
+.Offer .amount{
+    color: var(--Cyan);
+}
+.remaining-days{
+    color: var(--Soft-blue);
+}
+.creator{
+    padding-top: 20px;
+    border-top: 0.1px solid var(--border-top);
+    column-gap: 16px;
+    color: var(--Soft-blue);
+}
+.creator .image-creator{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    outline: 1px solid var(--White);
+}
+a{
+    text-decoration: none;
+    color: var(--White);
+}
+h3:hover ,a:hover{
+    transition: all 0.3s ease-in-out;
+    color: var(--Cyan);
+}
+@media(max-width:1246px){
+    main{
+        margin: 60px 0;
+        width: 90%;
+        width: fit-content;
+    }
+    .NFT-preview-card{
+        width: 100%;
+    }
+}
+.attribution{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    text-align: center;
+}
+.attribution a{
+    color: var(--White);
+}
